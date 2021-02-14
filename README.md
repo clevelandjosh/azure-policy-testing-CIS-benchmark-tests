@@ -3,7 +3,14 @@
 # Testing Azure Policy
 
 ## Introduction
-This repository outlines an automated testing approach for Azure Policies. The approach is fundamentally based on behavior-driven development (BDD) to improve communication between developers, security experts and compliance officers. The PowerShell testing framework Pester, Azure PowerShell and GitHub Actions are used in conjunction to automate the tests and run them as part of a DevOps pipeline. After the problem statement, the solution is described in more detail including how to set it up in your Azure environment.
+
+This is a fork from https://github.com/fawohlsc/azure-policy-testing/
+
+This repository outlines an automated testing approach for Azure Policies, :fork: the intent of this fork being to have a test suite capable of ensuring when the CIS benchmark policies are enforcing there is a repetable set of tests :fork:. 
+
+The content below this line is from the original branch (and quite a good read!):
+
+The approach is fundamentally based on behavior-driven development (BDD) to improve communication between developers, security experts and compliance officers. The PowerShell testing framework Pester, Azure PowerShell and GitHub Actions are used in conjunction to automate the tests and run them as part of a DevOps pipeline. After the problem statement, the solution is described in more detail including how to set it up in your Azure environment.
 
 ## Problem Statement
 Let's start simple: Why should you test Azure Policy in the first place? It's just configuration not code. This is a fair statement, but any configuration changes on Azure Policies can be highly impactful and when done wrong even lead to production outages. Just see this example for an Azure Policy, which is quite common for enterprise customers adopting Azure (See: [Hub-spoke network topology in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). In a nutshell, whenever a route table is created, a user-defined route (UDR) should be added to route all internet traffic to a virtual appliance hosted centrally in the hub virtual network for outbound traffic inspection:
